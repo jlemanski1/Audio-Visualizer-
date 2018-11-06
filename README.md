@@ -9,9 +9,9 @@ Signal Processes that can be used for visualizations.
 ## Example Usage
 #### Frequency Bands Cube Visualization
 ```C#
-public int band;            // Band to visualize [0-7]
-public float startScale;    // Initial & smallest cube size
-public scaleMultiplier;     // Amount to multply cube hieght by
+public int band;                  // Band to visualize [0-7]
+public float startScale;          // Initial & smallest cube size
+public float scaleMultiplier;     // Amount to multply cube hieght by
 ```
 
 ```c#
