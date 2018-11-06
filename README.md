@@ -11,7 +11,7 @@ Signal Processes that can be used for visualizations.
 ```C#
 public int band;            // Band to visualize [0-7]
 public float startScale;    // Initial & smallest cube size
-scaleMultiplier;            // Amount to multply cube hieght by
+public scaleMultiplier;            // Amount to multply cube hieght by
 ```
 
 ```c#
