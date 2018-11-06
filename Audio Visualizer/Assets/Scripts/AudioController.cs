@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent (typeof(AudioSource))]
 public class AudioController : MonoBehaviour {
@@ -23,7 +21,9 @@ public class AudioController : MonoBehaviour {
         _audioSource.GetSpectrumData(samples, 0, FFTWindow.Blackman);
     }
 
-    /* Creates the frequency bands from the samples
+
+    void GetFrequencyBands() {
+        /* Creates the frequency bands from the samples
      * 22050 / 512 = 43 hz/sample
      * Frequencies
      * 20 - 60hz
@@ -44,7 +44,6 @@ public class AudioController : MonoBehaviour {
      * 7 - 256 = 11008hz : 10923-21930
      * =510
      */
-    void GetFrequencyBands() {
         int currentSample = 0;
 
         for (int i = 0; i < 8; i++) {
