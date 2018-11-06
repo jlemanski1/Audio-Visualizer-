@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 33255255514609240}
   - component: {fileID: 23019740511658248}
   - component: {fileID: 65091766611349868}
+  - component: {fileID: 114021324486065468}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Band Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 95b20f9e8d8830d40a6e8e22ceb99e4c, type: 2}
+  - {fileID: 2100000, guid: 54135737d5da0e44e8e5dedd3e396cc7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,3 +97,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114021324486065468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115437046388968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afef314748355e54298fb68bb046542f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  band: 0
+  startScale: 1
+  scaleMultiplier: 10

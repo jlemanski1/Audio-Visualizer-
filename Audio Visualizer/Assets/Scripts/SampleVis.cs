@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeVis : MonoBehaviour {
+public class SampleVis : MonoBehaviour {
     public GameObject cube; // Cube Prefab
     GameObject[] _cubes = new GameObject[512];
 	public float maxScale;
@@ -14,7 +14,7 @@ public class CubeVis : MonoBehaviour {
             GameObject _instanceCube = (GameObject)Instantiate(cube);
             _instanceCube.transform.position = this.transform.position;
             _instanceCube.transform.parent = this.transform;
-            _instanceCube.name = "Cube " + i;
+            _instanceCube.name = "Sample Cube " + i;
             this.transform.eulerAngles = new Vector3(0, -0.703125f * i, 0); // 512/360 = 0.703125
             _instanceCube.transform.position = Vector3.forward * radius;
             _cubes[i] = _instanceCube;
