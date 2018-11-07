@@ -3,8 +3,10 @@
 [RequireComponent (typeof(AudioSource))]
 public class AudioController : MonoBehaviour {
     AudioSource _audioSource;
-    public static float[] samples = new float[512];   // Audio Samples: 512
-    public static float[] freqBands = new float[8];  // Audio Bands:   8
+    public static float[] samples = new float[512];     // Audio Samples: 512
+    public static float[] freqBands = new float[8];     // Frequency Bands:   8
+    public static float[] bandBuffer = new float[8];    // Freq Band Buffer
+    private float[] _bufferSmooth = new float[8];
 
 	void Start () {
         _audioSource = GetComponent<AudioSource>();
@@ -14,6 +16,7 @@ public class AudioController : MonoBehaviour {
 	void Update () {
         GetSpectrumFromSource();
         GetFrequencyBands();
+        BandBuffer();
 	}
 
     // Get samples from audio source and compress to 512 samples
@@ -21,6 +24,22 @@ public class AudioController : MonoBehaviour {
         _audioSource.GetSpectrumData(samples, 0, FFTWindow.Blackman);
     }
 
+    // 
+    void BandBuffer() {
+        for (int i = 0; i < 8; i++) {
+            // Set buffer to frequency band
+            if (freqBands[i] > bandBuffer[i]) {
+                bandBuffer[i] = freqBands[i];
+                _bufferSmooth[i] = 0.005f;
+            }
+
+            // Decrease bandbuffer by smooth amount
+            if (freqBands[i] < bandBuffer[i]) {
+                bandBuffer[i] -= _bufferSmooth[i];
+                _bufferSmooth[i] *= 1.2f;
+            }
+        }
+    }
 
     void GetFrequencyBands() {
         /* Creates the frequency bands from the samples
